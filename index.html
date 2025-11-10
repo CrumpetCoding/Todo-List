@@ -3,20 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="style.css" rel="stylesheet">
+    <script src="index.js"></script>
     <title>To Do List</title>
 </head>
 <body>
     <div class="container">
-        <h1>To Do List</h1>
         <div class="todo-app">
-            <input type="text" id="input-box" placeholder="add your text">
-            <button>Add</button>
+            <h1>To Do List</h1>
+            <div class="input">
+                <input type="text" id="input-box" placeholder="add your text">
+                <button>Add</button>
+            </div>
+            <ul id="list-items">
+                <li>Feed cats</li>
+                <li>Tidy kitchen</li>
+                <li>Kick ass</li>
+            </ul>
         </div>
-        <ul>
-            <li>Feed cats</li>
-            <li>Tidy kitchen</li>
-            <li>Kick ass</li>
-        </ul>
     </div>
 </body>
 </html>
