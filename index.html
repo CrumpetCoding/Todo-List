@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="style.css" rel="stylesheet">
-    <script src="index.js"></script>
     <title>To Do List</title>
 </head>
 <body>
@@ -12,15 +11,13 @@
         <div class="todo-app">
             <h1>To Do List</h1>
             <div class="input">
-                <input type="text" id="input-box" placeholder="add your text">
-                <button>Add</button>
+                <input type="text" id="text-box" placeholder="add your text">
+                <button onclick="addItem()">Add</button>
             </div>
             <ul id="list-items">
-                <li>Feed cats</li>
-                <li>Tidy kitchen</li>
-                <li>Kick ass</li>
             </ul>
         </div>
     </div>
+    <script src="index.js"></script>
 </body>
 </html>

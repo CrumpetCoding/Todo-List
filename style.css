@@ -25,6 +25,8 @@ input {
     border-radius: 5px;
     font-weight: bold;
     text-indent: 5%;
+    border-width: 1px;
+    height: 20px;
 }
 
 button{
@@ -32,4 +34,6 @@ button{
     background-color: #b9c8ef;
     width: 50px;
     font-weight: bold;
+    border-width: 1px;
+    height: 20px;
 }
