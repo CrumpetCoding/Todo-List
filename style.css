@@ -12,13 +12,13 @@ body {
 .todo-app {
     display: flex;
     flex-direction: column;
-    align-items: center;
     border-color: black;
     border-style: solid;
     border-width: 2px;
     border-radius: 10%;
     padding: 20px;
     background-color: white;
+    align-items: center;
 }
 
 input {
@@ -36,4 +36,17 @@ button{
     font-weight: bold;
     border-width: 1px;
     height: 20px;
+}
+
+#list-items {
+    justify-content: left;
+    margin: 0;
+}
+
+ul li {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 130px;
+    margin: 0;
 }
