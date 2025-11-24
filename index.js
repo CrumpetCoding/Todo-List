@@ -1,36 +1,63 @@
-const text = document.getElementById("text-box");
-const list = document.getElementById("list-items");
+const textBoxEl = document.getElementById("text-box");
+const listEl = document.getElementById("list-items");
+const toDos = JSON.parse(localStorage.getItem("toDos")) ?? [];
 
 function addItem(){
 
-    if(text.value === ''){
+    if(textBoxEl.value === ''){
         alert("Please write something.")
+        return;
     }
-    else{
-        let li = document.createElement("LI");
-        li.innerHTML = text.value
-        list.appendChild(li);
-        let span = document.createElement("SPAN");
-        span.innerHTML = "x";
-        li.appendChild(span);
-    }
-    text.value = "";
+    const newToDo = createEmptyToDo(textBoxEl.value);
+    renderToDo(newToDo);
+    textBoxEl.value = "";
     saveItems();
+    textBoxEl.focus();
 }
 
-list.addEventListener("click", function(e){
-    if(e.target.tagName === "SPAN"){
-        e.target.parentElement.remove();
+function renderToDo(toDoItem){
+
+    const li = document.createElement("LI");
+    li.innerText = toDoItem.text;
+    li.dataset.toDoID = toDoItem.id;
+    const span = document.createElement("SPAN");
+    span.innerText = "x";
+    span.dataset.delete = true;
+    li.appendChild(span);
+    listEl.appendChild(li);
+}
+
+listEl.addEventListener("click", function(e){
+    console.log(e);
+    if(e.target.dataset.delete === true){
+        const toDoID = e.target.parentElement.dataset.toDoID;
+        const toDoIndex = toDos.findIndex(toDo => toDo.id === toDoID);
+        toDos.splice(toDoIndex, 1);
+        document.querySelector(`[data-to-do-i-d=${toDoID}]`).remove();
         saveItems();
     }
 }, false);
 
 function saveItems(){
-    localStorage.setItem("data", list.innerHTML);
+    localStorage.setItem("toDos", JSON.stringify(toDos));
 }
 
-function showList(){
-    list.innerHTML = localStorage.getItem("data");
+function addEventListener(){
+    textBoxEl.focus();
+    textBoxEl.addEventListener("keyup", event => {
+        if (event.key === "Enter"){
+            addItem();
+        }
+    })
 }
 
-showList();
+function createEmptyToDo(text){
+    const newToDo = {
+        text,
+        isCompleted: false,
+        id: crypto.randomUUID(),
+    }
+    return newToDo;
+}
+
+addEventListener();
