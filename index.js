@@ -16,7 +16,6 @@ function addItem(){
 }
 
 function renderToDo(toDoItem){
-
     const li = document.createElement("LI");
     li.innerText = toDoItem.text;
     li.dataset.toDoID = toDoItem.id;
