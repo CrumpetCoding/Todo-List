@@ -42,7 +42,7 @@ ul{
 }
 
 ul li {
-    gap: 100px;
+    gap: 4px;
     padding-top: 10px;
     list-style: none;
     display: flex;
@@ -58,15 +58,15 @@ ul li {
     margin: 5px;
 }
 
-ul li span {
+.actionIcon {
     display: flex;
     align-items: flex-end;
     justify-content: center;
-    margin-left: auto;
     padding: 0px;
-    height: 15px;
-    width: 20px;
-    border-radius: 5px;
+    width: 22px;
+    background: lightgray;
+    border-radius: 4px;
+    height: 22px;
 }
 
 button:hover {
@@ -74,9 +74,14 @@ button:hover {
     cursor: pointer;
 }
 
-ul li span:hover {
+ul li .actionIcon:hover {
     background-color: red;
     color: white;
     cursor: pointer;
 }
+/* TODO: Update colours for the tick and delete icons. */
 
+.textItem {
+  flex: 1;
+  text-align: left;
+}
