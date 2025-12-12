@@ -31,15 +31,17 @@ function renderToDo(toDoItem){
     li.appendChild(textSpan);
 
     const deleteSpan = document.createElement("span");
-    deleteSpan.innerText = "x";
+    deleteSpan.innerText = "✕";
     deleteSpan.classList.add("actionIcon");
-    deleteSpan.dataset.delete = "true"; // When we read this from the HTML it's a string.
+    deleteSpan.setAttribute('id', "delete");
+    deleteSpan.dataset.delete = "true"; // This reads from the HTML as a string.
     li.appendChild(deleteSpan);
 
     const completeSpan = document.createElement("span");
     completeSpan.innerText = "✓";
     completeSpan.classList.add("actionIcon");
-    completeSpan.dataset.complete = "true"; // When we read this from the HTML it's a string.
+    completeSpan.setAttribute('id', "complete");
+    completeSpan.dataset.complete = "true"; // This reads from the HTML as a string.
     li.appendChild(completeSpan);
 
 }
@@ -66,10 +68,12 @@ listEl.addEventListener("click", function(e){
         if (toDo.isCompleted){
             toDo.isCompleted = false;
             // Need to remove "completed" class
+            toDo.classList.remove("completed");
         }
         else{
             toDo.isCompleted = true;
             // Need to add "completed" class
+            toDo.classList.add("completed");
         }
         saveItems();
     }
