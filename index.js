@@ -72,6 +72,7 @@ listEl.addEventListener("click", function(e){
         }
         else{
             toDo.isCompleted = true;
+            strikeThrough(???);
             // Need to add "completed" class
             toDo.classList.add("completed");
         }
@@ -106,6 +107,14 @@ if (toDos.length > 0){
     toDos.forEach((toDo) => {
         renderToDo(toDo);
     });
+}
+
+function strikeThrough(text){
+    
+    text.split('');
+    text.map(char => char + '\u0336');
+    text.join('');
+    return text;
 }
 
 addEventListener();
